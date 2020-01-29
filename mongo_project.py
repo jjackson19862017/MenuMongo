@@ -96,7 +96,7 @@ def delete_record():
 
         if confirmation.lower() == 'y':
             try:
-                coll.remove(doc)
+                coll.remove_one(doc)
                 print("Document deleted!")
             except:
                 print("Error accessing the database")
