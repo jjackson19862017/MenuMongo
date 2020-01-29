@@ -18,6 +18,21 @@ def mongo_connect(url):
     except pymongo.errors.ConnectionFailure as e:
         print("Could not connect to MondoDB: %s") % e
 
+def get_record():
+    print("")
+    first = input("Enter first name -> ")
+
+    try:
+        doc = coll.find_one({'first': first.lower(), 'last': last.lower()})
+    except:
+        print("Error accessing the database")
+
+    if not doc:
+        print("")
+        print("Error! No results found!")
+    
+    return doc
+
 def add_record():
     print("")
     first = input("Enter first name -> ")
